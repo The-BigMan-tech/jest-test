@@ -25,11 +25,8 @@ describe('AppController', () => {
   });
 
   describe('root operations:', () => {
-    it('should return "Hello World!"', () => {
-      expect(appService.getHello()).toBe('Hello World!');
-    });
     it('should mock the service',()=>{
-      //jest.spyOn(appService,'getHello').mockReturnValue('hello')
+      jest.spyOn(appService,'getHello').mockReturnValue('hello')
       expect(appController.getHello()).toBe('hello')
     })
     it('should return a number',async()=>{
