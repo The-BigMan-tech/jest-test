@@ -24,6 +24,9 @@ importers:
         specifier: ^7.8.1
         version: 7.8.1
     devDependencies:
+      '@fast-check/jest':
+        specifier: ^2.0.3
+        version: 2.0.3(@jest/expect@29.7.0)(@jest/globals@29.7.0)
       '@nestjs/cli':
         specifier: ^10.0.0
         version: 10.4.9
@@ -378,6 +381,18 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@fast-check/jest@2.0.3':
+    resolution: {integrity: sha512-3bRtz5kmM2GyLSm9qkDEepeulPaMWZMjjXhOl1G6TCuIghDCPN75pKi2FjXVhkRjTZc6TlMjrcX4f0rTGwM2bQ==}
+    peerDependencies:
+      '@fast-check/worker': '>=0.0.7 <0.5.0'
+      '@jest/expect': '>=28.0.0'
+      '@jest/globals': '>=25.5.2'
+    peerDependenciesMeta:
+      '@fast-check/worker':
+        optional: true
+      '@jest/expect':
+        optional: true
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -3421,6 +3436,13 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
+
+  '@fast-check/jest@2.0.3(@jest/expect@29.7.0)(@jest/globals@29.7.0)':
+    dependencies:
+      '@jest/globals': 29.7.0
+      fast-check: 3.23.2
+    optionalDependencies:
+      '@jest/expect': 29.7.0
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:

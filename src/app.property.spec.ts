@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import * as fastcheck from 'fast-check'
+import {fc as fastcheck,test} from '@fast-check/jest'
 
 
 describe('AppController', () => {
@@ -24,14 +24,10 @@ describe('AppController', () => {
         appController = app.get<AppController>(AppController);
         appService = app.get<AppService>(AppService);
     });
-
     describe('root operations:', () => {
-        it('should always return a number',()=>{
-            fastcheck.assert(
-                fastcheck.property(fastcheck.integer(),(num)=>{
-                    expect(appController.echoNumber(num)).toBe(num)
-                })
-            )
+        test.prop({num:fastcheck.integer()})
+        ('should always return a number',({num})=>{
+            expect(appController.echoNumber(num)).toBe(num)
         })
     });
 });
