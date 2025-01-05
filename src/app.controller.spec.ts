@@ -34,7 +34,10 @@ describe('AppController', () => {
       expect(result).toBe(10)
     })
     it('should return the average of the given numbers',()=>{
-      expect(appController.getAvg(1,2,3)).toBe(2)
+      expect(appController.getAvg([1,2,3])).toBe(2)
+    })
+    it('should echo back a number',()=>{
+      expect(appController.echoNumber(1)).toBe(1)
     })
   });
 });
